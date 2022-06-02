@@ -6,6 +6,8 @@ import java.util.Map;
 public class EvaluationService {
 
 	/**
+	 * ADD SOME DOCUMENTATION
+	 * 
 	 * 1.A Speed Converter - Convert to MilesPerHour
 	 * 
 	 * Write a method called toMilesPerHour that has 1 parameter of type double with
@@ -81,9 +83,19 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String printMegaBytesAndKiloBytes(int kiloBytes) {
+		
+		String result;
+		
+		// Check for valid input
+		if (kiloBytes < 0) {
+			result = "Invalid Value";
+		} else {
+			// 1000 kb = 1 mb, % used to get remainder
+			result = kiloBytes + " KB = " + kiloBytes/1000 + " MB and " + kiloBytes%1000 + " KB";
+		}
+		
+		return result;
 	}
 
 	/**
@@ -106,8 +118,16 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		
+		boolean wakeUp;
+		
+		// Determine hourOfDay and isBarking
+		if ((hourOfDay < 8 || hourOfDay > 22) && isBarking)
+			wakeUp = true;
+		else
+			wakeUp = false;
+		
+		return wakeUp;
 	}
 
 	/**
