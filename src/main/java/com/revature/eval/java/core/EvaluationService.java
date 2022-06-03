@@ -1,5 +1,7 @@
 package com.revature.eval.java.core;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -91,8 +93,8 @@ public class EvaluationService {
 		if (kiloBytes < 0) {
 			result = "Invalid Value";
 		} else {
-			// 1000 kb = 1 mb, % used to get remainder
-			result = kiloBytes + " KB = " + kiloBytes/1000 + " MB and " + kiloBytes%1000 + " KB";
+			// 1024 kb = 1 mb, % used to get remainder
+			result = kiloBytes + " KB = " + kiloBytes/1024 + " MB and " + kiloBytes%1024 + " KB";
 		}
 		
 		return result;
@@ -119,15 +121,12 @@ public class EvaluationService {
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
 		
-		boolean wakeUp;
-		
 		// Determine hourOfDay and isBarking
-		if ((hourOfDay < 8 || hourOfDay > 22) && isBarking)
-			wakeUp = true;
+		if ((hourOfDay < 8 || hourOfDay > 22) && hourOfDay >= 0 && hourOfDay <= 23 && isBarking)
+			return true;
 		else
-			wakeUp = false;
+			return false;
 		
-		return wakeUp;
 	}
 
 	/**
@@ -142,8 +141,20 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		
+		// Initialize DecimalFormat object
+		DecimalFormat df = new DecimalFormat("#.###");
+		
+		// Set how rounding is handled using RoundingMode...
+		// DOWN is used instead of FLOOR to handle negative numbers
+		df.setRoundingMode(RoundingMode.DOWN);
+		
+		// Determine if the parameters are equivalent
+		if (df.format(firstNum).equals(df.format(secondNum)))
+			return true;
+		else
+			return false;
+
 	}
 
 	/**
