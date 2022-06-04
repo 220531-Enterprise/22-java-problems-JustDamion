@@ -87,17 +87,13 @@ public class EvaluationService {
 	 */
 	public String printMegaBytesAndKiloBytes(int kiloBytes) {
 		
-		String result;
-		
 		// Check for valid input
-		if (kiloBytes < 0) {
-			result = "Invalid Value";
-		} else {
+		if (kiloBytes < 0)
+			return "Invalid Value";
+		else 
 			// 1024 kb = 1 mb, % used to get remainder
-			result = kiloBytes + " KB = " + kiloBytes/1024 + " MB and " + kiloBytes%1024 + " KB";
-		}
-		
-		return result;
+			return kiloBytes + " KB = " + kiloBytes/1024 + " MB and " + kiloBytes%1024 + " KB";
+
 	}
 
 	/**
@@ -208,8 +204,12 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		if (minutes < 0)
+			return "Invalid Value";
+		else
+			return minutes + " min = " + minutes/525600 + " y and " + (minutes%525600)/1440 + " d";
+
 	}
 
 	/**

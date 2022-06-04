@@ -7,19 +7,16 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		System.out.println(areEqualByThreeDecimalPlaces(-3.1756, -3.175));
+		System.out.println(printYearsAndDays(561600));
 		
 	}
 	
-	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
+	public static String printYearsAndDays(long minutes) {
 		
-		DecimalFormat df = new DecimalFormat("#.###");
-		df.setRoundingMode(RoundingMode.DOWN);
-		
-		if (df.format(firstNum).equals(df.format(secondNum)))
-			return true;
+		if (minutes < 0)
+			return "Invalid Value";
 		else
-			return false;
-		
+			return minutes + " min = " + minutes/525600 + " y and " + (minutes%525600)/1440 + " d";
+
 	}
 }
