@@ -205,9 +205,11 @@ public class EvaluationService {
 	 */
 	public String printYearsAndDays(long minutes) {
 		
+		// Check for invalid input
 		if (minutes < 0)
 			return "Invalid Value";
 		else
+			// 525600 mins = 1 year, 1440 mins = 1 day
 			return minutes + " min = " + minutes/525600 + " y and " + (minutes%525600)/1440 + " d";
 
 	}
@@ -222,8 +224,46 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		String word;
+		
+		switch (number) {
+		case 0:
+			word = "ZERO";
+			break;
+		case 1:
+			word = "ONE";
+			break;
+		case 2:
+			word = "TWO";
+			break;
+		case 3:
+			word = "THREE";
+			break;
+		case 4:
+			word = "FOUR";
+			break;
+		case 5:
+			word = "FIVE";
+			break;
+		case 6:
+			word = "SIX";
+			break;
+		case 7:
+			word = "SEVEN";
+			break;
+		case 8:
+			word = "EIGHT";
+			break;
+		case 9:
+			word = "NINE";
+			break;
+		default:
+			word = "OTHER";
+			break;
+		}
+		
+		return word;
 	}
 
 	/**
