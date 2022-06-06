@@ -378,8 +378,25 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		// Initialize acronym with first character
+		String acronym = "" + phrase.charAt(0);
+		
+		// Loop through phrase for each character
+		for (int i = 0; i < phrase.length(); i++) {
+			
+			// Check for ' ' and '-'
+			if (phrase.charAt(i) == ' ' || phrase.charAt(i) == '-') {
+				
+				// Add letters after ' ' and '-'
+				acronym += phrase.charAt(i + 1);
+				
+			}
+			
+		}
+		
+		// Return acronym in all caps
+		return acronym.toUpperCase();
 	}
 
 	/**
