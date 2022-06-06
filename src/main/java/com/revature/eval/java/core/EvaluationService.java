@@ -497,82 +497,25 @@ public class EvaluationService {
 		for (int i = 0; i < string.length(); i++) {
 			// Determine character and adjust score
 			switch (string.charAt(i)) {
-			case 'A':
+			case 'A': case 'E': case 'I': case 'O': case 'U': case 'L': case 'N': case 'R': case 'S': case 'T':
 				score += 1;
 				break;
-			case 'E':
-				score += 1;
-				break;
-			case 'I':
-				score += 1;
-				break;
-			case 'O':
-				score += 1;
-				break;
-			case 'U':
-				score += 1;
-				break;
-			case 'L':
-				score += 1;
-				break;
-			case 'N':
-				score += 1;
-				break;
-			case 'R':
-				score += 1;
-				break;
-			case 'S':
-				score += 1;
-				break;
-			case 'T':
-				score += 1;
-				break;
-			case 'D':
+			case 'D': case 'G': 
 				score += 2;
 				break;
-			case 'G':
-				score += 2;
-				break;
-			case 'B':
+			case 'B': case 'C': case 'M': case 'P':
 				score += 3;
 				break;
-			case 'C':
-				score += 3;
-				break;
-			case 'M':
-				score += 3;
-				break;
-			case 'P':
-				score += 3;
-				break;
-			case 'F':
-				score += 4;
-				break;
-			case 'H':
-				score += 4;
-				break;
-			case 'V':
-				score += 4;
-				break;
-			case 'W':
-				score += 4;
-				break;
-			case 'Y':
+			case 'F': case 'H': case 'V': case 'W': case 'Y':
 				score += 4;
 				break;
 			case 'K':
 				score += 5;
 				break;
-			case 'J':
+			case 'J': case 'X':
 				score += 8;
 				break;
-			case 'X':
-				score += 8;
-				break;
-			case 'Q':
-				score += 10;
-				break;
-			case 'Z':
+			case 'Q': case 'Z':
 				score += 10;
 				break;
 			default:
@@ -617,6 +560,7 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
+		// TODO Write an implementation for this method declaration
 		return null;
 	}
 
