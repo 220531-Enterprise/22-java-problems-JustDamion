@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -585,8 +586,22 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		// Create HashMap to store words + occurrences
+		HashMap<String, Integer> wordMap = new HashMap<>();
+		
+		// Iterate through string for each word, put & count words in wordMap
+		for (String w : string.split(",|\\s+")) {
+			if (w.isEmpty())
+				continue;
+			if (wordMap.containsKey(w))
+				wordMap.put(w, wordMap.get(w) + 1);
+			else
+				wordMap.put(w, 1);
+		}
+		
+		// Return wordMap
+		return wordMap;
 	}
 
 	/**
