@@ -3,6 +3,7 @@ package com.revature.eval.java.core;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -619,7 +620,37 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		
+		// Store input into userInput
+		int userInput = input;
+		
+		// Initialize LinkedList
+		LinkedList<Integer> digits = new LinkedList<Integer>();
+		
+		while (input > 0) {
+			
+			// Get last digit of input, then remove last digit of input
+			digits.push(input % 10);
+			input /= 10;
+			
+		}
+		
+		// Determine pow from size of digits
+		int pow = digits.size();
+		int sum = 0;
+		
+		while (!digits.isEmpty()) {
+			
+			// Calculate the sum of each digit ^ pow
+			sum += Math.pow(digits.pop(), pow);
+			
+		}
+		
+		// Check if Armstrong Number
+		if (sum == userInput)
+			return true;
+		else
+			return false;
 	}
 
 	/**
