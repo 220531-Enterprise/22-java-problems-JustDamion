@@ -6,36 +6,30 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		System.out.println(isArmstrongNumber(153));
+		System.out.println(isPangram("the quick brown fox jumps over the lazy dog"));
 		
 	}
 
-	public static boolean isArmstrongNumber(int input) {
+	public static boolean isPangram(String string) {
+		string = string.toLowerCase();
+		string = string.replaceAll("\\s", "");
+		System.out.println(string);
 		
-		int userInput = input;
-		LinkedList<Integer> digits = new LinkedList<Integer>();
+		boolean[] letterCheck = new boolean[26];
 		
-		while (input > 0) {
+		for (int i = 0; i < string.length(); i++) {
+			int letter = string.charAt(i) - 'a';
 			
-			digits.push(input % 10);
-			input /= 10;
-			
+			letterCheck[letter] = true;
 		}
 		
-		int pow = digits.size();
-		int sum = 0;
-		
-		while (!digits.isEmpty()) {
-			
-			sum += Math.pow(digits.pop(), pow);
-			System.out.println(sum);
-			
+		for (int i = 0; i < letterCheck.length; i++) {
+			if (letterCheck[i] == false) {
+				return false;
+			}
 		}
 		
-		if (sum == userInput)
-			return true;
-		else
-			return false;
+		return true;
 	}
 	
 }

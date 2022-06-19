@@ -711,8 +711,27 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		// Format string
+		string = string.toLowerCase();
+		string = string.replaceAll("\\s", "");
+		
+		boolean[] letterCheck = new boolean[26];
+		
+		// Check for used characters
+		for (int i = 0; i < string.length(); i++) {
+			int letter = string.charAt(i) - 'a';
+			
+			letterCheck[letter] = true;
+		}
+		
+		// Check if all characters were used
+		for (int i = 0; i < letterCheck.length; i++) {
+			if (letterCheck[i] == false) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	/**
