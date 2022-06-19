@@ -1,35 +1,38 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Test {
 
 	public static void main(String[] args) {
 
-		System.out.println(isPangram("the quick brown fox jumps over the lazy dog"));
+		System.out.println(calculateNthPrime(2));
 		
 	}
 
-	public static boolean isPangram(String string) {
-		string = string.toLowerCase();
-		string = string.replaceAll("\\s", "");
-		System.out.println(string);
+	public static int calculateNthPrime(int k) {
+		int count = 0;
+		int num = 1;
+		int i;
 		
-		boolean[] letterCheck = new boolean[26];
-		
-		for (int i = 0; i < string.length(); i++) {
-			int letter = string.charAt(i) - 'a';
+		while (k > count) {
+			num++;
 			
-			letterCheck[letter] = true;
-		}
-		
-		for (int i = 0; i < letterCheck.length; i++) {
-			if (letterCheck[i] == false) {
-				return false;
+			for (i = 2; i < num; i++) {
+				if (num % i == 0) {
+					break;
+				}
+			}
+			
+			if (num == i) {
+				System.out.println(num);
+				count++;
 			}
 		}
 		
-		return true;
+		return num;
 	}
 	
 }

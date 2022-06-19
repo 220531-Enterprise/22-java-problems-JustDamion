@@ -2,6 +2,7 @@ package com.revature.eval.java.core;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -694,8 +695,33 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		List<Integer> primes = new ArrayList<Integer>();
+		int num = 1;
+		int i;
+		
+		// Check for valid input
+		if (k < 1) {
+			throw new IllegalArgumentException("Value must be greater than 0");
+		}
+		
+		// Check Nth prime has been found
+		while (k > primes.size()) {
+			num++;
+			
+			// Check for possible prime numbers
+			for (i = 2; i < num; i++) {
+				if (num % i == 0) {
+					break;
+				}
+			}
+			
+			// Check for prime number, add to list
+			if (num == i) {
+				primes.add(num);
+			}
+		}
+		
+		return primes.get(k - 1);
 	}
 
 	/**
