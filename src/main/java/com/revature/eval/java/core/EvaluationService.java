@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class EvaluationService {
 
@@ -740,7 +741,15 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		Random rand = new Random();
+		int[] numbers = new int[3];
+		
+		// Loop through three times, generate random nums
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = rand.nextInt(101) - 1;
+		}
+		
+		return numbers;
 	}
 	
 	/*
