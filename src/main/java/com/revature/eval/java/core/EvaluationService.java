@@ -4,6 +4,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -772,7 +773,23 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+		HashSet<Integer> nums = new HashSet<Integer>();
+		
+		// Loop through numbers up to i
+		for (int j = 0; j < i; j++) {
+			// Loop through set
+			for (int x = 0; x < set.length; x++) {
+				// Check if number is multiple, add to nums
+				if (j % set[x] == 0) {
+					nums.add(j);
+				}
+			}
+		}
+		
+		// Calculate sum
+		int sum = nums.stream().mapToInt(Integer::intValue).sum();
+		
+		return sum;
 	}
 	
 	/**
