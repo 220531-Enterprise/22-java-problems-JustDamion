@@ -763,6 +763,14 @@ public class EvaluationService {
 	 */
 	
 	public int guessingGame(int x, int y) {
-		return 0;
+		Integer rand = null;
+
+		// Re-generate random numbers until in range
+		do 
+		{
+			rand = (int)(Math.random() * 100);
+		} while (rand < x || rand > y);
+		
+		return rand;
 	}
 }
